@@ -15,8 +15,6 @@ from homeassistant.const import EVENT_HOMEASSISTANT_STOP, SPEED_MS, CONF_UNIT_SY
 _LOGGER = logging.getLogger(__name__)
 
 async def async_setup_entry(hass: HomeAssistant, config_entry, async_add_entities):
-    #async_add_entities([Temp()])
-
     listener = WFListener(hass, config_entry, async_add_entities)
     listener.start()
     
@@ -397,6 +395,7 @@ class Sky:
 
         self.hasObs = False
         self._hubname = "Weatherflow Sky " + self.sn
+
     async def setupHub (self):
         pass
 
@@ -490,6 +489,7 @@ class Air:
 
         self.hasObs = False
         self._hubname = "Weatherflow Air " + self.sn
+
     async def setupHub (self):
         pass
 
@@ -580,7 +580,6 @@ class WFListener(threading.Thread):
 
 
     async def async_prep_payload(self, data):
-        #_LOGGER.info(data)
         try:
             type = data['type']
             if type == "device_status":

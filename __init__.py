@@ -10,8 +10,6 @@ from .const import DOMAIN
 
 CONFIG_SCHEMA = vol.Schema({DOMAIN: vol.Schema({})}, extra=vol.ALLOW_EXTRA)
 
-# TODO List the platforms that you want to support.
-# For your initial PR, limit it to 1 platform.
 PLATFORMS = ["sensor"]
 
 
@@ -29,10 +27,6 @@ async def async_setup(hass: HomeAssistant, config: dict):
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
-    """Set up Somfy from a config entry."""
-    # TODO Store an API object for your platforms to access
-    # hass.data[DOMAIN][entry.entry_id] = MyApi(…)
-
     for component in PLATFORMS:
         hass.async_create_task(
             hass.config_entries.async_forward_entry_setup(entry, component)
@@ -51,7 +45,5 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry):
             ]
         )
     )
-    #if unload_ok:
-    #    hass.data[DOMAIN].pop(entry.entry_id)
 
     return unload_ok
