@@ -1,0 +1,13 @@
+{
+  "domain": "weatherflow",
+  "name": "Weatherflow",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/weatherflow",
+  "requirements": [],
+  "ssdp": {},
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@echo1001"
+  ]
+}
